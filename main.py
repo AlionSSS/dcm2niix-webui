@@ -140,7 +140,7 @@ server_iface = gr.Interface(
         )
     ],
     outputs=[gr.Text(label="nii文件目录路径"), gr.Files(label="保存nii文件目录下的nii文件")],
-    description="在服务器端启动时使用，点击【开始转换】按钮执行转换。",
+    description="在本地电脑端、服务器端启动时皆可使用，点击【开始转换】按钮执行转换。",
     allow_flagging="never",
     submit_btn="开始转换",
     clear_btn=gr.Button(value="clear", interactive=False, visible=False),
