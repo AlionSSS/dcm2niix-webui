@@ -153,4 +153,5 @@ tabbed_interface = gr.TabbedInterface(
     title="dicom 转 nii"
 )
 
-tabbed_interface.launch(inbrowser=True)
+if __name__ == '__main__':
+    tabbed_interface.launch(inbrowser=True, server_name='0.0.0.0')
