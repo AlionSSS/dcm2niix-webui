@@ -8,7 +8,8 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
 - 可视化：使用 [Gradio](https://github.com/gradio-app/gradio) 将该功能可视化，分为本地电脑使用和服务端使用方式
 
 ## 安装(Install)
-- 新建一个虚拟环境 Python 3.9.16
+- 新建一个虚拟环境(Python 3.9.16)，或使用已有的Python环境
+  - 例如 `$ conda create -n env_name python=3.9` 
 - 依赖
   - `$ pip install gradio==4.29 -i "https://pypi.doubanio.com/simple/"`
   - `$ pip install dcm2niix -i "https://pypi.doubanio.com/simple/"` 
