@@ -18,7 +18,7 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
 - 在本地电脑端、服务器端启动时皆可使用。在服务端部署后，可供多人在线使用。
 - 说明：上传dicom文件目录的压缩包（必填，例如'dicom.zip'），点击【开始转换】即可
 
-![normal_captrue.jpg](doc-resources/normal_captrue.jpg)
+![normal_captrue.jpg](doc-resources/common_captrue.jpg)
 
 
 
