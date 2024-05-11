@@ -1,7 +1,6 @@
 import os
 import gradio as gr
 import zipfile
-import shutil
 
 from util import lib_dcm2nii
 from util import lib_common
