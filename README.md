@@ -4,7 +4,7 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
 
 ## 描述
 
-- 功能：利用 [dcm2niix库](https://github.com/rordenlab/dcm2niix) 将 **dicom** 文件转为 **nii** 文件
+- 功能：利用 [dcm2niix](https://github.com/rordenlab/dcm2niix) 将 **dicom** 文件转为 **nii** 文件
 - 可视化：使用 [Gradio](https://github.com/gradio-app/gradio) 将该功能可视化，分为本地电脑使用和服务端使用方式
 
 ## 本地端
