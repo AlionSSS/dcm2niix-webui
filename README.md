@@ -10,7 +10,7 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
 ## 安装(Install)
 - 新建一个虚拟环境(Python 3.9.16)，或使用已有的Python环境
   - 例如 `$ conda create -n env_name python=3.9` 
-- 依赖
+- 安装依赖
   - `$ pip install gradio==4.29 -i "https://pypi.doubanio.com/simple/"`
   - `$ pip install dcm2niix -i "https://pypi.doubanio.com/simple/"` 
     - dcm2niix 当前版本为 1.0.20220715
