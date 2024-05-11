@@ -21,14 +21,15 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
 
 ## 操作说明(Operating Instructions)
 ### 本地端(Local End)
-- 在本地电脑端启动时使用
+- 在本地电脑端启动时使用（打开浏览器，访问 http://localhost:7860）
 - 说明：填入dicom文件目录路径、nii文件保存路径，点击【开始转换】即可
 
 ![local_capture.jpg](doc-resources/local_capture.jpg)
 
 
 ### 通用端(Universal End)
-- 在本地电脑端、服务器端启动时皆可使用。在服务端部署后，可供多人在线使用。
+- 在本地电脑端、服务器端启动时皆可使用。
+- 在服务端部署后，可供多人在线使用。（打开浏览器，访问 http://服务器IP:7860）
 - 说明：上传dicom文件目录的压缩包（必填，例如'dicom.zip'），点击【开始转换】即可
 
 ![universal_captrue.jpg](doc-resources/universal_captrue.jpg)
