@@ -1,6 +1,6 @@
-# dicom2nii-webui
+# dicom2niix-webui
 
-The web UI for dcm2nii (DICOM to NIfTI converter)
+The web UI for dcm2niix (DICOM to NIfTI converter)
 
 ## 描述(Description)
 
