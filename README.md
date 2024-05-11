@@ -30,4 +30,5 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
     - dcm2niix 当前版本为 1.0.20220715
 
 ## 启动
-- 直接执行 `$ python main.py`
+- 本地启动，直接执行 `$ python main.py`
+- 服务端启动，执行 `$ nohup python main.py 1>server_run.log 2>&1 &`
