@@ -18,14 +18,15 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
 - 本地启动，直接执行 `$ python main.py`
 - 服务端启动，执行 `$ nohup python main.py 1>server_run.log 2>&1 &`
 
-## 本地端(Local end)
+## 操作说明(Operating Instructions)
+### 本地端(Local End)
 - 在本地电脑端启动时使用
 - 说明：填入dicom文件目录路径、nii文件保存路径，点击【开始转换】即可
 
 ![local_capture.jpg](doc-resources/local_capture.jpg)
 
 
-## 通用端(Universal end)
+### 通用端(Universal End)
 - 在本地电脑端、服务器端启动时皆可使用。在服务端部署后，可供多人在线使用。
 - 说明：上传dicom文件目录的压缩包（必填，例如'dicom.zip'），点击【开始转换】即可
 
