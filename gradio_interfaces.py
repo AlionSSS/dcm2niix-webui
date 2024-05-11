@@ -1,52 +1,14 @@
 import os
 import gradio as gr
 import zipfile
+import shutil
+
 from util import lib_dcm2nii
+from util import lib_common
 
 EXAMPLE_DICOM_DIR_PATH = 'D:/project/xxx/Task/ABC_Test_02/xxx'
 EXAMPLE_NII_DIR_PATH = f'D:/project/res/'
 CONCURRENCY_LIMIT = 3
-
-def get_latest_nii_file(nii_dir_path: str):
-    """
-    获取最新转换出的nii文件
-    :param nii_dir_path:
-    :return: nii文件JSON信息, nii文件
-    """
-    latest_json_file = ""
-    latest_json_file_mtime = 0
-    latest_nii_file = ""
-    latest_nii_file_mtime = 0
-    for file in os.listdir(nii_dir_path):
-        file_whole_path = os.path.join(nii_dir_path, file)
-        if os.path.isfile(file_whole_path):  # and file.startswith("dicom_T1_RARE_"):
-            if file.endswith(".json"):
-                json_file_mtime = os.path.getmtime(file_whole_path)
-                if json_file_mtime > latest_json_file_mtime:
-                    latest_json_file_mtime = json_file_mtime
-                    latest_json_file = file_whole_path
-            elif file.endswith(".nii.gz") or file.endswith(".nii"):
-                nii_file_mtime = os.path.getmtime(file_whole_path)
-                if nii_file_mtime > latest_nii_file_mtime:
-                    latest_nii_file_mtime = nii_file_mtime
-                    latest_nii_file = file_whole_path
-
-    return latest_json_file, latest_nii_file
-
-
-def get_all_nii_file(nii_dir_path: str):
-    """
-    获取所有转换出的nii文件
-    :param nii_dir_path:
-    :return: nii文件列表
-    """
-    files = []
-    for file in os.listdir(nii_dir_path):
-        file_whole_path = os.path.join(nii_dir_path, file)
-        if os.path.isfile(file_whole_path):
-            if file.endswith(".json") or file.endswith(".nii.gz") or file.endswith(".nii"):
-                files.append(file_whole_path)
-    return files
 
 
 def service_local_dicom_to_nii(dicom_dir_path, depth, nii_dir_path, gz, image):
@@ -60,6 +22,7 @@ def service_local_dicom_to_nii(dicom_dir_path, depth, nii_dir_path, gz, image):
         nii_dir_path = os.path.abspath(os.path.join(dicom_dir_path, ".."))
 
     try:
+        nii_dir_path = os.path.join(nii_dir_path, lib_common.generate_dir_name())
         if not os.path.exists(nii_dir_path) or not os.path.isdir(nii_dir_path):
             os.mkdir(nii_dir_path)
 
@@ -67,7 +30,7 @@ def service_local_dicom_to_nii(dicom_dir_path, depth, nii_dir_path, gz, image):
                                                gz)
         if result_code == 0:
             # json_file, nii_file = get_latest_nii_file(nii_dir_path)
-            return nii_dir_path, get_all_nii_file(nii_dir_path)
+            return nii_dir_path, lib_common.get_all_nii_file(nii_dir_path)
         else:
             raise gr.Error("dicom 转 nii 时，发生异常，请确保填入了正确的dicom文件目录。异常码为：" + str(result_code))
     except Exception as e:
@@ -77,7 +40,8 @@ def service_local_dicom_to_nii(dicom_dir_path, depth, nii_dir_path, gz, image):
 local_iface = gr.Interface(
     fn=service_local_dicom_to_nii,
     inputs=[
-        gr.Textbox(label="dicom文件目录路径（必填）", info=f"例如'{EXAMPLE_DICOM_DIR_PATH}'，下面有多个目录存放各自的dicom文件时，将会分别自动处理"),
+        gr.Textbox(label="dicom文件目录路径（必填）",
+                   info=f"例如'{EXAMPLE_DICOM_DIR_PATH}'，下面有多个目录存放各自的dicom文件时，将会分别自动处理"),
         gr.Radio(label="dicom目录的搜索深度",
                  info="directory search depth. Convert DICOMs in sub-folders of in_folder? (0..9, default 5)",
                  choices=list(range(1, 10)), value=5),
@@ -102,12 +66,18 @@ local_iface = gr.Interface(
 def service_server_dicom_to_nii(file, depth, gz, example_image):
     print(f"===> service_server_dicom_to_nii: {file}")
     # 校验
-    if not file:
-        gr.Warning(f"请传入dicom文件目录的压缩包，如'dicom.zip'")
+    if not file or not zipfile.is_zipfile(file.name):
+        gr.Warning(f"请传入dicom文件目录的ZIP压缩包，如'dicom.zip'")
         return
+    dicom_zipfile_path = file.name
+
+    # 创建本次的工作目录
+    save_dir_path = os.path.dirname(dicom_zipfile_path)
+    current_work_dir = os.path.join(save_dir_path, lib_common.generate_dir_name())
+    os.mkdir(current_work_dir)
+    save_dir_path = current_work_dir
 
     # 解压
-    save_dir_path = os.path.dirname(file.name)
     with zipfile.ZipFile(file.name, "r") as zfile:
         # 文件名包含中文时有乱码问题
         zfile.extractall(save_dir_path)
@@ -116,7 +86,7 @@ def service_server_dicom_to_nii(file, depth, gz, example_image):
     try:
         result_code = lib_dcm2nii.dicom_to_nii(save_dir_path, save_dir_path, depth, gz)
         if result_code == 0:
-            return save_dir_path, get_all_nii_file(save_dir_path)
+            return save_dir_path, lib_common.get_all_nii_file(save_dir_path)
         else:
             raise gr.Error("dicom 转 nii 时，发生异常，请确保填入了正确的dicom文件目录。异常码为：" + str(result_code))
     except Exception as e:

@@ -1,6 +1,5 @@
 import SimpleITK as sitk
 import os
-import zipfile
 
 
 def dicom_to_nii(dicom_dir_path: str, nii_file_path: str):
@@ -26,21 +25,3 @@ def dicom_to_nii(dicom_dir_path: str, nii_file_path: str):
     if not os.path.exists(nii_dir_path) or not os.path.isdir(nii_dir_path):
         os.mkdir(nii_dir_path)
     sitk.WriteImage(image, nii_file_path)
-
-
-def unzip_dicom_file(zip_file_path: str, save_dir_path: str):
-    with zipfile.ZipFile(zip_file_path, "r") as zfile:
-        # 文件名包含中文时有乱码问题
-        zfile.extractall(save_dir_path)
-
-        # 找到存放dicom文件的目录
-        # 如果存在名称为dicom的目录，直接就用
-        for info in zfile.infolist():
-            if info.is_dir() and info.filename == "dicom":
-                return info.filename
-        # 否则获取第一个目录，排除MAC上的固定目录
-        for info in zfile.infolist():
-            if info.is_dir() and not info.filename == "__MACOSX/":
-                return info.filename
-        # 如果还是找不到，就直接用当前目录
-        return "."
