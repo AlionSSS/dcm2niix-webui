@@ -1,7 +1,7 @@
 import os
 import gradio as gr
 import zipfile
-from lib import lib_dcm2nii
+from util import lib_dcm2nii
 
 EXAMPLE_DICOM_DIR_PATH = 'D:/project/xxx/Task/ABC_Test_02/xxx'
 EXAMPLE_NII_DIR_PATH = f'D:/project/res/'
