@@ -15,9 +15,10 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
   - `$ pip install dcm2niix -i "https://pypi.doubanio.com/simple/"` 
     - dcm2niix 当前版本为 1.0.20220715
 
-## 启动(Run)
-- 本地启动，直接执行 `$ python main.py`
-- 服务端启动，执行 `$ nohup python main.py 1>server_run.log 2>&1 &`
+## 启动服务(Start Serving)
+- 二选一
+  - 在本地电脑端启动，直接执行 `$ python main.py`
+  - 在服务器端启动，执行 `$ nohup python main.py 1>server_run.log 2>&1 &`
 
 ## 操作说明(Operating Instructions)
 ### 本地端(Local End)
