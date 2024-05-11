@@ -14,8 +14,10 @@ The web UI for dcm2nii (DICOM to NIfTI converter)
   - `$ pip install gradio==4.29 -i "https://pypi.doubanio.com/simple/"`
   - `$ pip install dcm2niix -i "https://pypi.doubanio.com/simple/"` 
     - dcm2niix 当前版本为 1.0.20220715
+- 下载本项目代码
 
 ## 启动服务(Start Service)
+- 进入到本项目的目录下
 - 二选一
   - 在本地电脑端启动，直接执行 `$ python main.py`
   - 在服务器端启动，执行 `$ nohup python main.py 1>server_run.log 2>&1 &`
