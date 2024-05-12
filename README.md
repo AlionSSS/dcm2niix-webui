@@ -5,7 +5,7 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 ## 描述(Description)
 
 - 功能：利用 [dcm2niix](https://github.com/rordenlab/dcm2niix) 将 **dicom** 文件转为 **nii** 文件
-- 可视化：使用 [Gradio](https://github.com/gradio-app/gradio) 将该功能可视化，分为本地电脑使用和服务端使用方式
+- 可视化：使用 [Gradio](https://github.com/gradio-app/gradio) 将该功能可视化，分为本地端使用和通用端使用方式
 
 ## 安装(Install)
 - 新建一个虚拟环境(Python 3.9.16)，或使用已有的Python环境
