@@ -6,7 +6,9 @@ from util import lib_dcm2nii
 from util import lib_common
 
 EXAMPLE_DICOM_DIR_PATH = 'D:/project/xxx/Task/ABC_Test_02/xxx'
-EXAMPLE_NII_DIR_PATH = f'D:/project/res/'
+EXAMPLE_NII_DIR_PATH = 'D:/project/res/'
+EXAMPLE_DICOM_ZIP_JPG = "./resources/image/example_dicom_zip.jpg"
+EXAMPLE_DICOM_DIR_JPG = "./resources/image/example_dicom_dir.jpg"
 CONCURRENCY_LIMIT = 3
 
 
@@ -49,7 +51,7 @@ local_iface = gr.Interface(
         gr.Radio(label="nii文件的压缩选项",
                  info="gz compress images (y/i/n/3, default n) [y=pigz, i=internal:miniz, n=no, 3=no,3D]",
                  choices=["y", "i", "n", "3"], value="n"),
-        gr.Image(label="dicom目录示例（下面存放所有的*.dcm文件）", value="./resources/image/example_dicom_dir.jpg",
+        gr.Image(label="dicom目录示例（下面存放所有的*.dcm文件）", value=EXAMPLE_DICOM_DIR_JPG,
                  interactive=False),
 
     ],
@@ -104,7 +106,7 @@ server_iface = gr.Interface(
                  choices=["y", "i", "n", "3"], value="n"),
         gr.Image(
             label="dicom压缩包示例（不要带中文，压缩包内每个目录存放各自所有的*.dcm文件。）",
-            value="./resources/image/example_dicom_zip.jpg",
+            value=EXAMPLE_DICOM_ZIP_JPG,
             interactive=False
         )
     ],
