@@ -9,15 +9,22 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 
 ## 安装(Install)
 - 新建一个虚拟环境(Python 3.9.16)，或使用已有的Python环境
-  - 例如 `$ conda create -n env_name python=3.9` 
-- 安装依赖
-  - `$ pip install gradio==4.29 -i "https://pypi.doubanio.com/simple/"`
-  - `$ pip install dcm2niix -i "https://pypi.doubanio.com/simple/"` 
-    - dcm2niix 当前版本为 1.0.20220715
-- 下载本项目代码
-  - 点击[本项目GitHub页面](https://github.com/AlionSSS/dcm2niix-webui)右上角的绿色的按钮`Code`，再点击`Download ZIP`
+  - 例如 `$ conda create -n env_name python=3.9`
+- 使用源码方式安装
+  - 下载本项目代码
+    - 点击[本项目GitHub页面](https://github.com/AlionSSS/dcm2niix-webui)右上角的绿色的按钮`Code`，再点击`Download ZIP`
+  - 解压项目，进入到项目根目录
+    - 安装，执行 `pip install -e ./ -i "https://pypi.doubanio.com/simple/"`
+- 注
+  - dcm2niix 库的当前版本为 1.0.20220715
+  - 卸载命令 `pip uninstall dcm2niix-webui"`
 
 ## 启动服务(Start Service)
+### 直接启动
+- 由于安装时已经在当前 Python 环境中安装了 script
+- 所以可以在任意位置直接执行 `$ dcm2niix-gui`，启动 WebUI
+
+### 使用代码启动
 - 进入到本项目的目录下，执行 `cd src/dcm2niix_webui`
 - 二选一
   - 在本地电脑端启动，直接执行 `$ python main.py`
@@ -38,5 +45,10 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 
 ![universal_captrue.jpg](doc-resources/universal_captrue.jpg)
 
-
-
+## 手动构建（Build）
+- 更新、安装工具
+  - `$ pip install --upgrade setuptools`
+  - `$ pip install --upgrade build`
+- 进入到项目根目录下，执行 `$ python -m build`
+- 构建完成会在项目 dist 目录下，生成 tar.gz 和 whl 文件
+- 直接使用 PIP 即可安装，如 `pip install .\dist\dcm2niix_webui-0.1.0-py3-none-any.whl`

@@ -1,4 +1,4 @@
-from gradio_interfaces import *
+from .gradio_interfaces import *
 
 
 def start_service():

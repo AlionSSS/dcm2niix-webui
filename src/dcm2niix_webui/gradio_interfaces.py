@@ -2,13 +2,13 @@ import os
 import gradio as gr
 import zipfile
 
-from util import lib_dcm2nii
-from util import lib_common
+from .util import lib_dcm2nii
+from .util import lib_common
 
 EXAMPLE_DICOM_DIR_PATH = 'D:/project/xxx/Task/ABC_Test_02/xxx'
 EXAMPLE_NII_DIR_PATH = 'D:/project/res/'
-EXAMPLE_DICOM_ZIP_JPG = "./resources/image/example_dicom_zip.jpg"
-EXAMPLE_DICOM_DIR_JPG = "./resources/image/example_dicom_dir.jpg"
+EXAMPLE_DICOM_ZIP_JPG = os.path.join(os.path.dirname(__file__), "./resources/image/example_dicom_zip.jpg")
+EXAMPLE_DICOM_DIR_JPG = os.path.join(os.path.dirname(__file__), "./resources/image/example_dicom_dir.jpg")
 CONCURRENCY_LIMIT = 3
 
 
