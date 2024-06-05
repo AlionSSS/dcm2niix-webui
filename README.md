@@ -32,7 +32,7 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 
 ## 操作说明(Operating Instructions)
 ### 本地端(For Local)
-- 在本地电脑端启动时使用（打开浏览器，访问 http://localhost:7860）
+- 在本地电脑端启动时使用（打开浏览器，访问 http://localhost:7860 ）
 - 说明：填入 dicom 文件目录路径、nii 文件保存路径，点击【开始转换】即可
 
 ![local_capture.jpg](doc-resources/local_capture.jpg)
