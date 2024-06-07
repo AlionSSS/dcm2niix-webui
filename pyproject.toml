@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "dcm2niix-webui"
-version = "0.1.0"
+version = "0.1.1"
 description = "The web UI for dcm2niix (DICOM to NIfTI converter)"
 authors = [
   { name = "Lion A", email = "alionsss@foxmail.com" }
