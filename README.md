@@ -10,6 +10,8 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 ## 安装(Install)
 - 新建一个虚拟环境(Python 3.9.16)，或使用已有的Python环境
   - 例如 `$ conda create -n env_name python=3.9`
+- 使用 PIP 方式安装
+  - `$ pip install dcm2niix-webui`
 - 使用源码方式安装
   - 下载本项目代码
     - 点击[本项目GitHub页面](https://github.com/AlionSSS/dcm2niix-webui)右上角的绿色的按钮`Code`，再点击`Download ZIP`
@@ -35,7 +37,7 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 - 在本地电脑端启动时使用（打开浏览器，访问 http://localhost:7860 ）
 - 说明：填入 dicom 文件目录路径、nii 文件保存路径，点击【开始转换】即可
 
-![local_capture.jpg](doc-resources/local_capture.jpg)
+![local_capture.jpg](https://raw.githubusercontent.com/AlionSSS/dcm2niix-webui/main/doc-resources/local_capture.jpg)
 
 
 ### 通用端(For Universal)
@@ -43,7 +45,7 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 - 在服务端部署后，可供多人在线使用。（打开浏览器，访问 http://服务器IP:7860）
 - 说明：上传 dicom 文件目录的压缩包（必填，例如 'dicom.zip'），点击【开始转换】即可
 
-![universal_captrue.jpg](doc-resources/universal_captrue.jpg)
+![universal_captrue.jpg](https://raw.githubusercontent.com/AlionSSS/dcm2niix-webui/main/doc-resources/universal_captrue.jpg)
 
 ## 手动构建（Build）
 - 更新、安装工具
