@@ -47,7 +47,7 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
 
 ![universal_captrue.jpg](https://raw.githubusercontent.com/AlionSSS/dcm2niix-webui/main/doc-resources/universal_captrue.jpg)
 
-## 手动构建（Build）
+## 手动构建(Build)
 - 更新、安装工具
   - `$ pip install --upgrade setuptools`
   - `$ pip install --upgrade build`
