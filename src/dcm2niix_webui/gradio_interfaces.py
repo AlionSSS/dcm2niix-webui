@@ -121,5 +121,5 @@ server_iface = gr.Interface(
 tabbed_interface = gr.TabbedInterface(
     interface_list=[local_iface, server_iface],
     tab_names=["本地端", "通用端"],
-    title="dicom 转 nii"
+    title="dicom 转 nii 工具，项目 Git 仓库：https://github.com/AlionSSS/dcm2niix-webui"
 )
