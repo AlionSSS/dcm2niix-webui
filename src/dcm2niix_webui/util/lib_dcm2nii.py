@@ -11,5 +11,5 @@ def dicom_to_nii(dicom_dir_path: str, nii_dir_path: str, depth: int = 5, gz: str
     :return: None
     """
 
-    result_code = os.system(rf'dcm2niix.exe -o "{nii_dir_path}" -z {gz}  -d {depth} "{dicom_dir_path}"')
+    result_code = os.system(rf'dcm2niix -o "{nii_dir_path}" -z {gz}  -d {depth} "{dicom_dir_path}"')
     return result_code

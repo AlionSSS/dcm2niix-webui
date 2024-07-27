@@ -19,7 +19,7 @@ The web UI for dcm2niix (DICOM to NIfTI converter)
     - 安装，执行 `$ pip install -e ./ -i "https://pypi.doubanio.com/simple/"`
 - 注
   - dcm2niix 库的当前版本为 1.0.20220715
-  - 卸载命令 `$ pip uninstall dcm2niix-webui"`
+  - 卸载命令 `$ pip uninstall dcm2niix-webui`
 
 ## 启动服务(Start Service)
 ### 直接启动
